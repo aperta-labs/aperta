@@ -1,11 +1,16 @@
 {
   "name": "@aperta/pager",
   "version": "1.0.0",
-  "description": "A delightful way to page",
+  "description": "A delightful (and fast) way to page",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": {
+    "name": "Liam Grossman"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
