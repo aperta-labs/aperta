@@ -1,0 +1,25 @@
+{
+  "name": "aperta",
+  "version": "1.0.0",
+  "description": "Monorepo for aperta libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperta-labs/aperta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aperta-labs/aperta/issues"
+  },
+  "homepage": "https://github.com/aperta-labs/aperta#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7"
+  }
+}
