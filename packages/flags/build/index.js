@@ -1,0 +1,1 @@
+var t={};function i(o,r){if(!t[o])t[o]={};t[o]=r}function s(o,r){if(r in t)return t[o]}function f(o,r,n){t[o][r]=n}function _(o,r){i(o,r);function n(e){return s(o,e)}function g(e,c){f(o,e,c)}return{check:n,set:g}}export{_ as flags};

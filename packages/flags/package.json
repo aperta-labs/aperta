@@ -1,10 +1,12 @@
 {
-  "name": "@aperta/logging",
+  "name": "@aperta/flags",
   "version": "1.0.0",
   "description": "A delightful way to page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bun build ./src/index.ts --outdir ./build --minify && bun run build:declaration",
+    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json"
   },
   "author": {
     "name": "Liam Grossman"
