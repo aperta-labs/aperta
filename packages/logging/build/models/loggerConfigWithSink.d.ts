@@ -1,6 +1,6 @@
 import type { Log } from "./log";
-export type LoggerConfigWithSink = {
+export interface LoggerConfigWithSink {
     sink: (logs: Log[]) => void | Promise<void>;
     queue: number;
     formatter?: (log: Log) => string;
-};
+}

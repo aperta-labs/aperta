@@ -1,11 +1,7 @@
-declare function create<T extends object>(namespace: string, key: string, value: T, ttl: number): void;
-declare function _delete(namespace: string, key: string): void;
-declare function deleteAll(namespace: string): void;
-declare function read<T extends object>(namespace: string, key: string): T | null;
-export declare const store: {
-    create: typeof create;
-    delete: typeof _delete;
-    deleteAll: typeof deleteAll;
-    read: typeof read;
+import type { Logger } from "../models/logger.ts";
+export declare function store(namespace: string, redisUrl: string, logger?: Logger): {
+    create: <T extends object>(key: string, value: T, ttl: number) => Promise<void>;
+    delete: (key: string) => Promise<void>;
+    deleteAll: () => Promise<void>;
+    read: <T extends object>(key: string) => Promise<T | null>;
 };
-export {};

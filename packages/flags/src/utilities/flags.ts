@@ -25,5 +25,6 @@ export async function flags<const T extends Storage>(
   return {
     check: (flag: keyof typeof storage) => _check(flag as string),
     refresh,
+    storage,
   };
 }

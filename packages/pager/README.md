@@ -1,1 +1,0 @@
-# @aperta/pager

@@ -1,2 +1,2 @@
-import { cache } from "./utilities/cache";
-export { cache };
+import { store } from "./utilities/store";
+export { store };
