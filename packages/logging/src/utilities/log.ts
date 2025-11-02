@@ -3,7 +3,7 @@ import type { Sink } from "../models/sink";
 
 export function log(
   handleOutput: (content: string) => void,
-  level: string,
+  level: Uppercase<string>,
   namespace: string,
   message: string,
   formatter: Formatter,

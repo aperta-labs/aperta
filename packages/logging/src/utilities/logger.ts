@@ -1,20 +1,7 @@
-import { error, warn, info, trace, debug } from "console";
+import { error, warn, info, trace, debug, log } from "console";
 import type { LoggerConfig } from "../models/loggerConfig";
-import type { LoggerConfigWithoutSink } from "../models/loggerConfigWithoutSink";
-import type { LoggerConfigWithSink } from "../models/loggerConfigWithSink";
-import { log } from "../utilities/log";
+import { log as _log } from "../utilities/log";
 import type { Log } from "../models/log";
-
-export function logger(
-  namespace: string,
-  config?: LoggerConfigWithoutSink
-): {
-  info: (msg: string) => void;
-  error: (msg: string) => void;
-  warn: (msg: string) => void;
-  debug: (msg: string) => void;
-  trace: (msg: string) => void;
-};
 
 export function logger(namespace: string, config?: LoggerConfig) {
   const sinkQueue: Log[] = [];
@@ -37,8 +24,17 @@ export function logger(namespace: string, config?: LoggerConfig) {
   const formatter = config?.formatter || defaultFormatter;
 
   return {
+    custom: (level: Uppercase<string>, message: string) =>
+      _log(
+        log,
+        level,
+        namespace,
+        message,
+        formatter,
+        config?.sink ? queuedSink : undefined
+      ),
     info: (message: string) =>
-      log(
+      _log(
         info,
         "INFO",
         namespace,
@@ -47,7 +43,7 @@ export function logger(namespace: string, config?: LoggerConfig) {
         config?.sink ? queuedSink : undefined
       ),
     error: (message: string) =>
-      log(
+      _log(
         error,
         "ERROR",
         namespace,
@@ -56,7 +52,7 @@ export function logger(namespace: string, config?: LoggerConfig) {
         config?.sink ? queuedSink : undefined
       ),
     warn: (message: string) =>
-      log(
+      _log(
         warn,
         "WARN",
         namespace,
@@ -65,7 +61,7 @@ export function logger(namespace: string, config?: LoggerConfig) {
         config?.sink ? queuedSink : undefined
       ),
     debug: (message: string) =>
-      log(
+      _log(
         debug,
         "DEBUG",
         namespace,
@@ -74,7 +70,7 @@ export function logger(namespace: string, config?: LoggerConfig) {
         config?.sink ? queuedSink : undefined
       ),
     trace: (message: string) =>
-      log(
+      _log(
         trace,
         "TRACE",
         namespace,
