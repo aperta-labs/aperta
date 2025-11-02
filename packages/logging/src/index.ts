@@ -1,13 +1,11 @@
-import { debug } from "./utilities/debug";
-import { error } from "./utilities/error";
-import { info } from "./utilities/info";
-import { warn } from "./utilities/warn";
+import { log } from "./utilities/log";
 
 export function logger(namespace: string) {
   return {
-    info: (message: string) => info(namespace, message),
-    error: (message: string) => error(namespace, message),
-    warn: (message: string) => warn(namespace, message),
-    debug: (message: string) => debug(namespace, message),
+    info: (message: string) => log("INFO", namespace, message),
+    error: (message: string) => log("ERROR", namespace, message),
+    warn: (message: string) => log("WARN", namespace, message),
+    debug: (message: string) => log("DEBUG", namespace, message),
+    trace: (message: string) => log("TRACE", namespace, message),
   };
 }
