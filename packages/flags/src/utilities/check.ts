@@ -1,7 +1,5 @@
-import { _flags } from "./seed";
-
-export function check(namespace: string, flag: string) {
-  if (flag in _flags) {
-    return _flags[namespace];
+export function check(namespace: string, flag: string, storage: Storage) {
+  if (flag in storage) {
+    return storage[namespace];
   }
 }

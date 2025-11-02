@@ -7,7 +7,7 @@ type Item = {
 };
 const data: Record<string, Record<string, Item>> = {};
 
-export function cache(namespace: string, redisUrl: string, logger?: Logger) {
+export function store(namespace: string, redisUrl: string, logger?: Logger) {
   const CHANNEL = `@aperta/cache:channel:${namespace}`;
   const remoteCache = redis(redisUrl, logger);
 

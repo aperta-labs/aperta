@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bun build ./src/index.ts --outdir ./build --minify && bun run build:declaration",
+    "build": "bun build ./src/index.ts --outdir ./build --minify --target node && bun run build:declaration",
     "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json"
   },
   "author": {

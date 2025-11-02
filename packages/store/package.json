@@ -1,7 +1,7 @@
 {
-  "name": "@aperta/cache",
+  "name": "@aperta/store",
   "version": "1.0.0",
-  "description": "A delightful (and fast) way to cache",
+  "description": "A delightful (and fast) way to cache or rate limit",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
