@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/aperta-labs/aperta.git"
   },
-  "author": "",
+  "author": "Liam Grossman",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aperta-labs/aperta/issues"
