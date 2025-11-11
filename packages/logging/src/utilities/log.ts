@@ -7,6 +7,7 @@ export function log(
   namespace: string,
   message: string,
   formatter: Formatter,
+  extras?: object,
   sink?: Sink
 ) {
   const date = new Date();
@@ -16,6 +17,7 @@ export function log(
     level,
     namespace,
     message,
+    extras,
   };
   sink?.(result);
   handleOutput(formatter(result));

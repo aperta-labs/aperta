@@ -4,4 +4,5 @@ export interface Log {
   date: Date;
   message: string;
   level: string;
+  extras?: object;
 }

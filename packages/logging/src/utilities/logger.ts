@@ -16,66 +16,76 @@ export function logger(namespace: string, config?: LoggerConfig) {
   }
 
   function defaultFormatter(log: Log) {
-    return `${log.date.toDateString()} [${log.level}] [${log.namespace}] ${
-      log.pid
-    } ${log.message}`;
+    let formattedLog = `${log.date.toDateString()} [${log.level}] [${
+      log.namespace
+    }] ${log.pid} ${log.message}`;
+    if (log.extras) {
+      formattedLog += ` ${JSON.stringify(log.extras)}`;
+    }
+    return formattedLog;
   }
 
   const formatter = config?.formatter || defaultFormatter;
 
   return {
-    custom: (level: Uppercase<string>, message: string) =>
+    custom: (level: Uppercase<string>, message: string, extras?: object) =>
       _log(
         log,
         level,
         namespace,
         message,
         formatter,
+        extras,
         config?.sink ? queuedSink : undefined
       ),
-    info: (message: string) =>
+    info: (message: string, extras?: object) =>
       _log(
         info,
         "INFO",
         namespace,
         message,
         formatter,
+        extras,
         config?.sink ? queuedSink : undefined
       ),
-    error: (message: string) =>
+    error: (message: string, extras?: object) =>
       _log(
         error,
         "ERROR",
         namespace,
         message,
         formatter,
+        extras,
         config?.sink ? queuedSink : undefined
       ),
-    warn: (message: string) =>
+    warn: (message: string, extras?: object) =>
       _log(
         warn,
         "WARN",
         namespace,
         message,
         formatter,
+        extras,
         config?.sink ? queuedSink : undefined
       ),
-    debug: (message: string) =>
+    debug: (message: string, extras?: object) =>
       _log(
         debug,
         "DEBUG",
         namespace,
         message,
         formatter,
+        extras,
         config?.sink ? queuedSink : undefined
       ),
-    trace: (message: string) =>
+    trace: (message: string, extras?: object) =>
       _log(
         trace,
         "TRACE",
         namespace,
         message,
         formatter,
+        extras,
         config?.sink ? queuedSink : undefined
       ),
   };

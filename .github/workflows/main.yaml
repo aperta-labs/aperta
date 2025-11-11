@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup Bun (no need for separate Node setup)
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # Install dependencies using Bun
+      - run: bun install --frozen-lockfile
+
+      # Run lint and build using Bun scripts
+      - run: bun run build

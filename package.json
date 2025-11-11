@@ -2,9 +2,14 @@
   "name": "aperta",
   "version": "1.0.0",
   "description": "Monorepo for aperta libraries",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bun run build:flags && bun run build:logging && bun run build:store",
+    "build:flags": "bun run --filter @aperta/flags build",
+    "build:logging": "bun run --filter @aperta/logging build",
+    "build:store": "bun run --filter @aperta/store build",
+    "release": "bun run build && changeset publish"
   },
   "workspaces": [
     "packages/*"
