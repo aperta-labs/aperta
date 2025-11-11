@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bun build ./src/index.ts --outdir ./build --minify && bun run build:declaration",
-    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json"
+    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+    "release": "bun run build && changeset publish"
   },
   "author": {
     "name": "Liam Grossman"
@@ -14,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

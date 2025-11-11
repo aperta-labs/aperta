@@ -4,12 +4,10 @@
   "description": "Monorepo for aperta libraries",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bun run build:flags && bun run build:logging && bun run build:store",
-    "build:flags": "bun run --filter @aperta/flags build",
-    "build:logging": "bun run --filter @aperta/logging build",
-    "build:store": "bun run --filter @aperta/store build",
-    "release": "bun run build && changeset publish"
+    "build": "bun run --filter @aperta/* build",
+    "build:parallel": "bun run --filter @aperta/* --parallel build",
+    "release": "bun run --filter @aperta/* release",
+    "release:parallel": "bun run --filter @aperta/* --parallel release"
   },
   "workspaces": [
     "packages/*"

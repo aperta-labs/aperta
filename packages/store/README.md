@@ -1,1 +1,1 @@
-# @aperta/cache
+# @aperta/store
