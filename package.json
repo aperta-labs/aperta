@@ -4,10 +4,10 @@
   "description": "Monorepo for aperta libraries",
   "private": true,
   "scripts": {
-    "build": "bun run --filter @aperta/* build",
-    "build:parallel": "bun run --filter @aperta/* --parallel build",
-    "release": "bun run --filter @aperta/* release",
-    "release:parallel": "bun run --filter @aperta/* --parallel release"
+    "build:flags": "cd ./packages/flags && bun run build",
+    "build:logging": "cd ./packages/logging && bun run build",
+    "build:store": "cd ./packages/store && bun run build",
+    "install": "bun install --filter './packages/*'"
   },
   "workspaces": [
     "packages/*"
