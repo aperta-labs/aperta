@@ -7,7 +7,8 @@
     "build:flags": "cd ./packages/flags && bun run build",
     "build:logging": "cd ./packages/logging && bun run build",
     "build:store": "cd ./packages/store && bun run build",
-    "install": "bun install --filter './packages/*'"
+    "install": "bun install --filter './packages/*'",
+    "release": "changeset publish"
   },
   "workspaces": [
     "packages/*"

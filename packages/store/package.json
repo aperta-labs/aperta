@@ -1,6 +1,6 @@
 {
   "name": "@aperta/store",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A delightful (and fast) way to cache or rate limit",
   "main": "./build/index.js",
   "scripts": {
